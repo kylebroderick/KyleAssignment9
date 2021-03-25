@@ -46,7 +46,8 @@ namespace Assignment3.Controllers
         {
             if(ModelState.IsValid)
             {
-                TempStorage.AddMovie(movie);
+                _context.Movies.Add(movie);
+                _context.SaveChanges();
                 return View("Confirmation", movie);
             }
 
@@ -61,7 +62,7 @@ namespace Assignment3.Controllers
 
         public IActionResult MovieList()
         {
-            return View(TempStorage.Movies);
+            return View(_context.Movies);
         }
 
 
