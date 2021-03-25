@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <title>The Joel Hilton Film Collection</title>
+    <link rel="joel icon" type="image/x-icon" href="~/JoelHilton.jpg" />
+</head>
+
+<body>
+
+
+    <div class="bg-dark text-white p-2">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col navbar-brand">FILM COLLECTION</div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <h1>@ViewBag.Title</h1>
+
+        <menu>
+            <ul>
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-controller="Home" asp-action="MyPodcasts">My Podcasts</a></li>
+                <li><a asp-controller="Home" asp-action="EnterMovie">Enter Movies</a></li>
+                <li><a asp-controller="Home" asp-action="MovieList">Movie List</a></li>
+            </ul>
+        </menu>
+
+    </header>
+
+
+
+    @RenderBody()
+
+    <br />
+    <br />
+    <footer>This worked, Copyright 2021</footer>
+
+
+
+
+
+</body>
+
+
+
+</html>

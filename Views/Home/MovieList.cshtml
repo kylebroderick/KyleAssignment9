@@ -1,0 +1,63 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "Movie List";
+}
+
+@model IEnumerable<Assignment3.Models.EnterMovie>
+
+<div>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Title</th>
+                <th>Year</th>
+                <th>Director</th>
+                <th>Rating</th>
+                <th>Edited?</th>
+                <th>Lent to</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (Assignment3.Models.EnterMovie x in Model)
+            {
+            <tr>
+                @if (@x.Title != "Independence Day")
+                {
+                    <td>@x.Category</td>
+                    <td>@x.Title</td>
+                    <td>@x.Year</td>
+                    <td>@x.Director</td>
+                    <td>@x.Rating</td>
+                    <td>@x.Edited</td>
+                    <td>@x.LentTo</td>
+                    <td>@x.Notes</td>
+
+
+                    <td class="text-center">
+                        <form asp-action="DeleteMovie" method="post">
+                            <input type="hidden" name="MovieId"
+                                   value="@x.MovieId" />
+                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                        </form>
+                    </td>
+
+                    <td class="text-center">
+                        <form asp-action="EditMovie" method="post">
+                            <input type="hidden" name="MovieId"
+                                   value="@x.MovieId" />
+                            <button type="submit" class="btn btn-sm btn-warning">Edit</button>
+                        </form>
+                    </td>
+
+                }
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
